@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 观察者模式被观察的对象
+ * 观察者模式被观察的对象,可以使用 guava 的 eventBus ，不用自己实现
  */
 public class Subject {
 
