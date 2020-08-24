@@ -1,4 +1,4 @@
-package com.edu.spring.designPattern.stratege;
+package com.edu.spring.designpattern.stratege;
 
 /**
  * 统一的入口，不同的实现类有不同的实现

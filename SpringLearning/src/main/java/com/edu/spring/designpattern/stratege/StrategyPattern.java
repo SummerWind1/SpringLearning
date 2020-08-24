@@ -1,4 +1,4 @@
-package com.edu.spring.designPattern.stratege;
+package com.edu.spring.designpattern.stratege;
 
 /**
  * 策略模式

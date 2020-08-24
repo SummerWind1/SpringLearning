@@ -1,4 +1,4 @@
-package com.edu.spring.designPattern;
+package com.edu.spring.designpattern;
 
 /**
  * 建造者模式

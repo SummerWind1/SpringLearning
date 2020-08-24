@@ -17,7 +17,6 @@ public class CustomerBeanPostProcessor implements BeanPostProcessor {
      * @throws BeansException
      */
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-
         System.out.println("bean name: "+beanName);
         return bean;
     }
@@ -30,7 +29,6 @@ public class CustomerBeanPostProcessor implements BeanPostProcessor {
      * @throws BeansException
      */
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-
         System.out.println("bean name: "+beanName);
         return bean;
     }

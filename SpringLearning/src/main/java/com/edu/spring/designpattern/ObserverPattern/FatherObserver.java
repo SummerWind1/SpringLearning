@@ -1,4 +1,4 @@
-package com.edu.spring.designPattern.ObserverPattern;
+package com.edu.spring.designpattern.ObserverPattern;
 
 /**
  *
