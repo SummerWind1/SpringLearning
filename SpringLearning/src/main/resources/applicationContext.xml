@@ -2,20 +2,80 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-4.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+       http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-4.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"
+>
+
+    <!--byType 区别于其他类型的注入方式，可以针对接口的全部实现类进行注入
+    SpringTestBean 中有一个userServices 列表，Spring 中会查询类型相关的实现类注入
+    -->
+    <bean id="springTestBean" class="com.edu.spring.bean.SpringTestBean" autowire="byType">
+
+        <!--<property name="now" value="2020-12-13"></property>-->
+
+        <!--<property name="name" value="zhangsan"></property>-->
+
+        <!--<property name="books">-->
+            <!--<list>-->
+                <!--<value>math</value>-->
+                <!--<value>english</value>-->
+            <!--</list>-->
+        <!--</property>-->
+
+        <!--<property name="user" ref="user"></property>-->
+
+        <!--默认的注入策略也能注入-->
+        <!--<property name="users">-->
+            <!--<ref bean="user"></ref>-->
+        <!--</property>-->
+
+        <!--构造方法注入属性-->
+        <!--<constructor-arg name="name">-->
+            <!--<value></value>-->
+        <!--</constructor-arg>-->
+    </bean>
 
 
-    <bean id="springTestBean" class="com.edu.spring.bean.SpringTestBean" init-method="initMethod" destroy-method="destroyMethod"></bean>
+    <bean id="user" class="com.edu.spring.bean.metadata.User">
+        <property name="name" value="lisi"></property>
+        <property name="id" value="12306"></property>
+        <property name="springTestBean" ref="springTestBean"></property>
+    </bean>
+
+    <bean id="superUser" class="com.edu.spring.bean.metadata.SuperUser">
+    <property name="superUserName" value="superMan"></property>
+</bean>
+<!--autowire-candidate="false" 默认值是true 当bean 中注入了一个接口对象，却找到两个实现类的时候，会根据这个属性选择一个主要实现进行注入-->
+    <bean id="userService" class="com.edu.spring.bean.service.impl.UserServiceImpl" factory-bean="beanCreationFactory" factory-method="instanceUserServiceImpl" autowire-candidate="false"></bean>
+    <bean id="userService2" class="com.edu.spring.bean.service.impl.UserServiceImpl2" factory-bean="beanCreationFactory" factory-method="instanceUserServiceImpl2"></bean>
+
+    <!--使用factoryMethod 进行bean 的创建-->
+    <bean id="beanCreationFactory" class="com.edu.spring.bean.BeanCreationFactory"></bean>
 
     <!--使用注解指定bean初始化操作-->
-    <bean id="springTestBean1" class="com.edu.spring.bean.SpringTestBean1"></bean>
     <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
 
+    <!--<bean class="com.edu.spring.processor.CustomerBeanPostProcessor" />-->
 
-    <bean class="com.edu.spring.processor.CustomerBeanPostProcessor" />
+    <!--<context:component-scan base-package="com.edu.spring.bean"/>-->
+
+    <!--<import resource="applicationContext.xml"/>-->
+
+    <!--<alias name="springTestBean" alias="123"/>-->
 
 
+    <!--<bean id="myBeanAware" class="com.edu.spring.awarebean.MyBeanAwareTest">-->
+        <!--<property name="testName">-->
+            <!--<value>zhangsan</value>-->
+        <!--</property>-->
+        <!--<property name="books">-->
+            <!--<list>-->
+                <!--<value>chinise</value>-->
+                <!--<value>math</value>-->
+                <!--<value>english</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
 
 </beans>

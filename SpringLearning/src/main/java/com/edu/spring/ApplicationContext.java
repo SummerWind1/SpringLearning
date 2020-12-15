@@ -1,36 +1,30 @@
 package com.edu.spring;
 
+import com.edu.spring.bean.SpringTestBean;
 import com.edu.spring.enable.EnableDemoAnnotation;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 @EnableDemoAnnotation
 public class ApplicationContext {
 
     public static void main(String[] args) {
 
-//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-//
-//        SpringTestBean springTestBean = context.getBean(SpringTestBean.class);
-//
-//        System.out.println(springTestBean.getName());
-//
-//        SpringTestBean1 springTestBean1 = context.getBean(SpringTestBean1.class);
-//
-//        System.out.println(springTestBean1.getName());
-//
-//        User.builder().age(18).name("name").build();
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        SpringTestBean springTestBean = context.getBean(SpringTestBean.class);
 
-        context.register(ApplicationContext.class);
+        System.out.println(springTestBean.getName());
+        System.out.println(springTestBean.getNow());
+        System.out.println(springTestBean.getUserService().toString());
+//        System.out.println(springTestBean.getBooks());
+        System.out.println(springTestBean.getUser());
+//        System.out.println(springTestBean.getUsers());
+//        System.out.println(springTestBean.getUserServices().toString());
 
-        context.refresh();
+//        AnnotationConfigApplicationContext context1 = new AnnotationConfigApplicationContext(ApplicationContext.class);
 
-        String getHelloEnable = (String)context.getBean("getHelloEnable");
 
-        System.out.println(getHelloEnable);
 
-        context.start();
 
     }
 

@@ -1,6 +1,7 @@
 package com.edu.spring.bean.lifecycle;
 
 import org.springframework.beans.BeansException;
+import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.annotation.AnnotatedBeanDefinitionReader;
@@ -41,6 +42,10 @@ public class BeforeBeanInstance {
                 System.out.println("bean 初始化前回调");
             }
             return null;
+        }
+
+        public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
+            return false;
         }
 
     }
