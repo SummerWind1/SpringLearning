@@ -14,7 +14,7 @@
 
         <!--<property name="now" value="2020-12-13"></property>-->
 
-        <!--<property name="name" value="zhangsan"></property>-->
+        <property name="name" value="zhangsan"></property>
 
         <!--<property name="books">-->
             <!--<list>-->
@@ -43,18 +43,22 @@
         <property name="springTestBean" ref="springTestBean"></property>
     </bean>
 
-    <bean id="superUser" class="com.edu.spring.bean.metadata.SuperUser">
-    <property name="superUserName" value="superMan"></property>
-</bean>
-<!--autowire-candidate="false" 默认值是true 当bean 中注入了一个接口对象，却找到两个实现类的时候，会根据这个属性选择一个主要实现进行注入-->
-    <bean id="userService" class="com.edu.spring.bean.service.impl.UserServiceImpl" factory-bean="beanCreationFactory" factory-method="instanceUserServiceImpl" autowire-candidate="false"></bean>
-    <bean id="userService2" class="com.edu.spring.bean.service.impl.UserServiceImpl2" factory-bean="beanCreationFactory" factory-method="instanceUserServiceImpl2"></bean>
+    <!--<bean id="superUser" class="com.edu.spring.bean.metadata.SuperUser" autowire-candidate="false">-->
+    <!--<property name="superUserName" value="superMan"></property>-->
+    <!--</bean>-->
+    <!--autowire-candidate="false" 默认值是true 当bean 中注入了一个接口对象，却找到两个实现类的时候，会根据这个属性选择一个主要实现进行注入-->
+    <!--也可以是构造器注入的时候，默认是byType 的方式注入-->
+    <!--<bean id="userService" class="com.edu.spring.bean.service.impl.UserServiceImpl" factory-bean="beanCreationFactory" factory-method="instanceUserServiceImpl" autowire-candidate="false"></bean>-->
+    <!--<bean id="userService2" class="com.edu.spring.bean.service.impl.UserServiceImpl2" factory-bean="beanCreationFactory" factory-method="instanceUserServiceImpl2"></bean>-->
 
     <!--使用factoryMethod 进行bean 的创建-->
-    <bean id="beanCreationFactory" class="com.edu.spring.bean.BeanCreationFactory"></bean>
+    <!--<bean id="beanCreationFactory" class="com.edu.spring.bean.BeanCreationFactory"></bean>-->
+
+    <!--<bean id="userHolder" class="com.edu.spring.bean.metadata.UserHolder" autowire="constructor">-->
+    <!--</bean>-->
 
     <!--使用注解指定bean初始化操作-->
-    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
+    <!--<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
 
     <!--<bean class="com.edu.spring.processor.CustomerBeanPostProcessor" />-->
 

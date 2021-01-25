@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/SpringLearning.iml" filepath="$PROJECT_DIR$/.idea/SpringLearning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rpc-demo/rpc-demo.iml" filepath="$PROJECT_DIR$/rpc-demo/rpc-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/SpringLearning/spring-context-learning.iml" filepath="$PROJECT_DIR$/SpringLearning/spring-context-learning.iml" />
     </modules>
   </component>

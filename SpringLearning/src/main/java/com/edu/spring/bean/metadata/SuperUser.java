@@ -1,6 +1,8 @@
 package com.edu.spring.bean.metadata;
 
-public class SuperUser {
+import org.springframework.beans.factory.FactoryBean;
+
+public class SuperUser extends User {
 
     public String superUserName;
 

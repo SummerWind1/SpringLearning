@@ -15,7 +15,7 @@ import java.util.List;
 // bean 初始化后，bean 被销毁前
 //@Component
 // , FactoryBean
-public class SpringTestBean extends CommonAnnotationBeanPostProcessor implements InitializingBean, DisposableBean {
+public class SpringTestBean implements InitializingBean, DisposableBean {
 
     public SpringTestBean() {
 
@@ -146,8 +146,5 @@ public class SpringTestBean extends CommonAnnotationBeanPostProcessor implements
         return false;
     }
 
-    @Override
-    public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) {
-        return super.postProcessBeforeInstantiation(beanClass, beanName);
-    }
+
 }
