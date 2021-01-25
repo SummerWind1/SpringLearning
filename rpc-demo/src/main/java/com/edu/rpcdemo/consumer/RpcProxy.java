@@ -13,6 +13,7 @@ import io.netty.handler.codec.serialization.ObjectEncoder;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 
 public class RpcProxy {
 
@@ -20,7 +21,7 @@ public class RpcProxy {
 
         MethodProxy methodProxy = new MethodProxy(clazz);
 
-
+        return (T) Proxy.newProxyInstance(clazz.getClassLoader(), clazz.getInterfaces(), methodProxy);
 
 
     }
