@@ -17,7 +17,7 @@ public class InvokeProtocol implements Serializable {
     private String methodName;
 
     // 参数类型
-    private Class<?> params;
+    private Class<?> [] params;
 
     // 参数值
     private Object [] values;
